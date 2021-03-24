@@ -226,6 +226,10 @@ export class SocketClient extends EventEmitter {
                 let output: IOutput = reply.data;
                 this.emit('output', output);
             }
+            
+            if (reply && reply.type === "finalPing") {
+                this.emit('finalPing', reply.data)
+            }
         });
 
 
